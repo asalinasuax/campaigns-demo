@@ -17,3 +17,15 @@ spec:
         image: asalinasuax/campaign-demo:v1
         ports:
         - containerPort: 5000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: campaign-backend-service
+spec:
+  type: NodePort
+  selector:
+    app: campaign-api
+  ports:
+    - protocol: TCP
+      port: 5000
