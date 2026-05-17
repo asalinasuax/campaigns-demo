@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: campaign-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: campaign-api
+  template:
+    metadata:
+      labels:
+        app: campaign-api
+    spec:
+      containers:
+      - name: campaign-rest
+        image: asalinasuax/campaign-demo:v1
+        ports:
+        - containerPort: 5000
